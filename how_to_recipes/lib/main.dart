@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:how_to_recipes/ui/screens/onboarding.dart';
 import 'package:how_to_recipes/ui/screens/splash_screen.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.light(),
-      home: SplashScreen(),
+      home: Onboarding(),
     );
   }
 }
