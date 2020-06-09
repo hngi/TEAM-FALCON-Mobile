@@ -98,16 +98,6 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
     );
   }
 
-  List<SavedRecipe> generateSavedRecipe() {
-    return <SavedRecipe>[
-      SavedRecipe(
-          image: 'assets/images/sample_recipe.png',
-          title: 'Jollof rice and Chicken'),
-      SavedRecipe(
-          image: 'assets/images/sample_recipe.png',
-          title: 'Jollof rice and Chicken'),
-    ];
-  }
 }
 
 
