@@ -22,6 +22,7 @@ class _State extends State<AddSteps> {
         elevation: 0,
         actions: <Widget>[
           IconButton(
+                    onPressed: () {  },
             icon: Icon(
               Icons.check,
               color: Colors.black,
@@ -49,6 +50,7 @@ class _State extends State<AddSteps> {
                 )
             ),
       child: FlatButton(
+        onPressed: () {  },
         child: IconButton(
             icon: Icon(Icons.camera_enhance),
             onPressed: null),
