@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:how_to_recipes/ui/screens/widget/round_rectangular_button.dart';
+import 'package:how_to_recipes/ui/screens/widget/rounded_rectangular_image.dart';
 
 class SavedRecipesScreen extends StatefulWidget {
   @override
@@ -38,20 +40,7 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
       ),
       floatingActionButton: Padding(
         padding: EdgeInsets.fromLTRB(0, 0, 5, 48),
-        child:
-          RawMaterialButton(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            fillColor: Color(0xFFFFAC50),
-            elevation: 6.0,
-            onPressed: () {},
-            child: Text(
-              'Add new',
-              style: TextStyle(fontSize: 18.0, color: Colors.white),
-            ),
-            constraints: BoxConstraints.tightFor(width: 180.0, height: 50.0),
-          ),
+        child: RoundRectangularButton(20.0, color: Color(0xFFFFAC50), onPressed: () {},),
       ),
     );
   }
@@ -80,15 +69,13 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
         child: Row(
           children: <Widget>[
             Expanded(
-                flex: 0,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15.0),
-                  child: Image.asset(
-                    'assets/images/sample_recipe.png',
-                    height: 150.0,
-                    width: 100.0,
-                  ),
-                )),
+              flex: 0,
+              child: RoundRectangularImage(borderRadius: 15.0, image: Image.asset(
+                  'assets/images/sample_recipe.png',
+                  height: 150.0,
+                  width: 100.0,
+                ),)
+            ),
             Expanded(
                 flex: 1,
                 child: Padding(
@@ -119,27 +106,10 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
       SavedRecipe(
           image: 'assets/images/sample_recipe.png',
           title: 'Jollof rice and Chicken'),
-      SavedRecipe(
-          image: 'assets/images/sample_recipe.png',
-          title: 'Jollof rice and Chicken'),
-      SavedRecipe(
-          image: 'assets/images/sample_recipe.png',
-          title: 'Jollof rice and Chicken'),
-      SavedRecipe(
-          image: 'assets/images/sample_recipe.png',
-          title: 'Jollof rice and Chicken'),
-      SavedRecipe(
-          image: 'assets/images/sample_recipe.png',
-          title: 'Jollof rice and Chicken'),
-      SavedRecipe(
-          image: 'assets/images/sample_recipe.png',
-          title: 'Jollof rice and Chicken'),
-      SavedRecipe(
-          image: 'assets/images/sample_recipe.png',
-          title: 'Jollof rice and Chicken'),
     ];
   }
 }
+
 
 class SavedRecipe {
   final String image;
