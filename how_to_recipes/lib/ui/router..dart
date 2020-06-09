@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:how_to_recipes/core/constants/view_routes.dart';
+import 'package:how_to_recipes/ui/screens/saved_recipes_screen.dart';
 import 'package:how_to_recipes/ui/screens/splash_screen.dart';
 
 /// Class that generates routes for the application
@@ -29,7 +30,7 @@ class Router {
       case ViewRoutes.recipedetails:
         return Container();
       case ViewRoutes.savedrecipe:
-        return Container();
+        return SavedRecipesScreen();
       case ViewRoutes.addrecipe:
         return Container();
       case ViewRoutes.settings:

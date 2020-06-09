@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return Consumer<AppStateNotifier>(
         builder: (BuildContext context, AppStateNotifier value, Widget child) =>
             MaterialApp(
-              title: 'Flutter Demo',
+              title: 'Recipe Diary',
               theme: Constants.lightTheme,
               darkTheme: Constants.darkTheme,
               navigatorKey: navigationService.navigatorKey,

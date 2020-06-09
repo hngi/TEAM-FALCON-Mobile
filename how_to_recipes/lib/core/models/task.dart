@@ -1,39 +1,32 @@
 import 'dart:convert';
 
-import 'package:collection/collection.dart';
-import 'package:how_to_recipes/core/models/step.dart';
-
-final String tableTask = 'task';
-final String columnId = '_id';
-final String columnTitle = 'title';
-final String columnDescription = 'description';
-
-class Task {
+class Category {
   int id;
   String title;
   String description;
-  String image;
+  String imagePath;
   String createdAt;
-  Task({
+  Category({
     this.id,
     this.title,
     this.description,
-    this.image,
+    this.imagePath,
     this.createdAt,
   });
+  
 
-  Task copyWith({
+  Category copyWith({
     int id,
     String title,
     String description,
-    String image,
+    String imagePath,
     String createdAt,
   }) {
-    return Task(
+    return Category(
       id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
-      image: image ?? this.image,
+      imagePath: imagePath ?? this.imagePath,
       createdAt: createdAt ?? this.createdAt,
     );
   }
@@ -43,41 +36,41 @@ class Task {
       'id': id,
       'title': title,
       'description': description,
-      'image': image,
+      'imagePath': imagePath,
       'createdAt': createdAt,
     };
   }
 
-  static Task fromMap(Map<String, dynamic> map) {
+  static Category fromMap(Map<String, dynamic> map) {
     if (map == null) return null;
   
-    return Task(
+    return Category(
       id: map['id'],
       title: map['title'],
       description: map['description'],
-      image: map['image'],
+      imagePath: map['imagePath'],
       createdAt: map['createdAt'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  static Task fromJson(String source) => fromMap(json.decode(source));
+  static Category fromJson(String source) => fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Task(id: $id, title: $title, description: $description, image: $image, createdAt: $createdAt)';
+    return 'Category(id: $id, title: $title, description: $description, imagePath: $imagePath, createdAt: $createdAt)';
   }
 
   @override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
   
-    return o is Task &&
+    return o is Category &&
       o.id == id &&
       o.title == title &&
       o.description == description &&
-      o.image == image &&
+      o.imagePath == imagePath &&
       o.createdAt == createdAt;
   }
 
@@ -86,7 +79,7 @@ class Task {
     return id.hashCode ^
       title.hashCode ^
       description.hashCode ^
-      image.hashCode ^
+      imagePath.hashCode ^
       createdAt.hashCode;
   }
 }
