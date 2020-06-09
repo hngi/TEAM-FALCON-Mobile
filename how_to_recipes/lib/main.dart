@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:how_to_recipes/ui/screens/SearchScreen.dart';
 import 'package:how_to_recipes/ui/screens/splash_screen.dart';
 
 void main() {
@@ -10,9 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Cook App',
       theme: ThemeData.light(),
-      home: SplashScreen(),
+      home: SearchScreen(),
     );
   }
 }
