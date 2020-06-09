@@ -12,8 +12,14 @@ class SplashScreenVM extends BaseViewModel {
 
   Future startUp() async {
     setState(ViewState.Busy);
-
-    await Future.delayed(Duration(seconds: 3));
-    _navigationservice.pushReplacementNamed(ViewRoutes.savedrecipe);
+keystorage.isFirstTime = true;
+    if (keystorage.isFirstTime) {
+      await Future.delayed(Duration(seconds: 3));
+      
+      _navigationservice.pushReplacementNamed(ViewRoutes.onboarding);
+    } else {
+      await Future.delayed(Duration(seconds: 3));
+      _navigationservice.pushReplacementNamed(ViewRoutes.savedrecipe);
+    }
   }
 }

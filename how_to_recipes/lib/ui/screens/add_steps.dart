@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AddSteps extends StatefulWidget {
+class AddRecipe extends StatefulWidget {
   @override
   _State createState() => _State();
 }
 
-class _State extends State<AddSteps> {
+class _State extends State<AddRecipe> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class _State extends State<AddSteps> {
             fontWeight: FontWeight.bold,
             letterSpacing: 1,
           ),),
-        centerTitle: true,
+        
         elevation: 0,
         actions: <Widget>[
           IconButton(

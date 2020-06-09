@@ -10,13 +10,18 @@ class Constants {
   static Color darkPrimary = Colors.black;
   static Color lightAccent = Colors.black;
   static Color darkAccent = Colors.white;
-  static Color lightBG = Color(0xfffcfcff);
+  static Color lightBG = Color(0xFFE5E5E5);
   static Color darkBG = Colors.black;
   static Color badgeColor = Colors.red;
 
   static const kPaddingS = 8.0;
   static const kPaddingM = 16.0;
   static const kPaddingL = 32.0;
+
+  static const kcolor1 = Color(0xFF1D1754);
+  static const kcolor2 = Color(0xFFC4C4C4);
+  static const korange = Color(0xFFFFAC50);
+  static const kdarkOrange = Color(0xFF8E3900);
 
   static ThemeData lightTheme = ThemeData(
     backgroundColor: lightBG,

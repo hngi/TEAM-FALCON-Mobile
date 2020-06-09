@@ -16,14 +16,20 @@ class SearchBar extends StatelessWidget {
         border: Border.all(color: Colors.black54),
         borderRadius: BorderRadius.circular(10.5),
       ),
-      child: TextField(
-        style: TextStyle(fontSize: 14, fontFamily: 'DMSans'),
-        decoration: InputDecoration(
-          hintText: "search your recipes",
-          
-          icon: SvgPicture.asset("assets/icons/search.svg"),
-          border: InputBorder.none,
-        ),
+      child: Row(
+        children: <Widget>[
+          Icon(Icons.search),
+          Expanded(
+            child: TextField(
+              style: TextStyle(fontSize: 18, fontFamily: 'DMSans'),
+              decoration: InputDecoration(
+                hintText: "search your recipes",
+                icon: SvgPicture.asset("assets/icons/search.svg"),
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
