@@ -10,6 +10,8 @@ import 'package:how_to_recipes/ui/screens/splash_screen.dart';
 import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'package:provider/provider.dart';
 
+import 'ui/screens/add_steps.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -27,19 +29,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.light(),
-      home: Onboarding(),
+      home: AddSteps(),
+      //home: SavedRecipesScreen(),
     );
 
     // return Consumer<AppStateNotifier>(
-    //     builder: (BuildContext context, AppStateNotifier value, Widget child) =>
-    //         MaterialApp(
-    //           title: 'Recipe Diary',
-    //           theme: Constants.lightTheme,
-    //           darkTheme: Constants.darkTheme,
-    //           navigatorKey: navigationService.navigatorKey,
-    //           onGenerateRoute: Router.generateRoute,
-    //           home: SplashScreen(),
-    //           //    home: SavedRecipesScreen(),
-    //         ));
+    //   builder: (BuildContext context, AppStateNotifier value, Widget child) =>
+    //       MaterialApp(
+    //     title: 'Recipe Diary',
+    //     theme: Constants.lightTheme,
+    //     darkTheme: Constants.darkTheme,
+    //     navigatorKey: navigationService.navigatorKey,
+    //     onGenerateRoute: Router.generateRoute,
+    //     home: SplashScreen(),
+    //     //    ,
+    //   ),
+    // );
   }
 }

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class RoundRectangularButton extends StatelessWidget {
-  double radius;
-  Color color;
-  Function onPressed;
-  RoundRectangularButton (this.radius, {this.color, this.onPressed});
+  final double radius;
+  final String text;
+  final Color color;
+  final Function onPressed;
+  final double width;
+  final double height;
+  final IconData icon;
+  final BoxConstraints constraints;
+  RoundRectangularButton(this.radius,
+      {this.text, this.color, this.onPressed, this.width, this.height, this.icon, this.constraints});
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
@@ -14,11 +20,19 @@ class RoundRectangularButton extends StatelessWidget {
       fillColor: color,
       elevation: 6.0,
       onPressed: onPressed,
-      child: Text(
-        'Add new',
-        style: TextStyle(fontSize: 18.0, color: Colors.white),
+        child: ListTile(
+          dense: true,
+          title: Text(
+              text,
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.white,
+              ),
+          ),
+
+        leading: icon != null ? Icon(icon, color: Colors.white,) : null
       ),
-      constraints: BoxConstraints.tightFor(width: 180.0, height: 50.0),
+      constraints: constraints,
     );
   }
 }

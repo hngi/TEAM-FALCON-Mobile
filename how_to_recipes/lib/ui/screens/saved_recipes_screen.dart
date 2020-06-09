@@ -43,7 +43,12 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
         padding: EdgeInsets.fromLTRB(0, 0, 5, 48),
         child: RoundRectangularButton(
           20.0,
+          text: 'Add new',
           color: Color(0xFFFFAC50),
+          constraints: BoxConstraints.expand(
+            width: 180.0,
+            height: 50.0,
+          ),
           onPressed: () {},
         ),
       ),
