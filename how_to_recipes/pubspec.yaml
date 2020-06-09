@@ -43,6 +43,9 @@ dependencies:
   path_provider: ^1.6.10
   path: ^1.6.4
 
+  # Removed Upgradeable option because it dosen't support flutter sdk 1.17.2.
+  flutter_svg: 0.17.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
