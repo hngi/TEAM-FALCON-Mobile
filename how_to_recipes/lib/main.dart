@@ -23,9 +23,7 @@ class MyApp extends StatelessWidget {
   final keystorage = locator<KeyStorageService>();
   @override
   Widget build(BuildContext context) {
-    return Consumer<AppStateNotifier>(
-        builder: (BuildContext context, AppStateNotifier value, Widget child) =>
-            MaterialApp(
+    return MaterialApp(
               title: 'Recipe Diary',
               theme: Constants.lightTheme,
               darkTheme: Constants.darkTheme,
@@ -33,6 +31,6 @@ class MyApp extends StatelessWidget {
               onGenerateRoute: Router.generateRoute,
               home: SplashScreen(),
               //    home: SavedRecipesScreen(),
-            ));
+            );
   }
 }

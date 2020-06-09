@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:how_to_recipes/core/models/task.dart';
+import 'package:how_to_recipes/ui/screens/widget/empty_screen.dart';
 import 'package:how_to_recipes/ui/screens/widget/round_rectangular_button.dart';
 import 'package:how_to_recipes/ui/screens/widget/rounded_rectangular_image.dart';
 import 'package:how_to_recipes/ui/screens/widget/state_responsive.dart';
@@ -40,7 +41,7 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
         child: _buildSuggestions(),
       ),
       floatingActionButton: Padding(
-        padding: EdgeInsets.fromLTRB(0, 0, 5, 48),
+        padding: EdgeInsets.fromLTRB(0, 0, 5, 20),
         child: RoundRectangularButton(
           20.0,
           color: Color(0xFFFFAC50),
@@ -57,6 +58,7 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
       builder: (context, model, _) => StateResponsive(
         state: model.state,
         busyWidget: Center(child: CircularProgressIndicator()),
+        noDataAvailableWidget: EmptyScreen(),
         idleWidget: ListView.builder(
             padding: const EdgeInsets.all(16.0),
             itemBuilder: (context, index) {
