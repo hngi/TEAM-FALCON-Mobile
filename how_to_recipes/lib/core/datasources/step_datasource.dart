@@ -17,7 +17,7 @@ class StepDataSourceImpl extends StepDataSource {
   @override
   Future<void> addSteps(Step step) async {
     // Get a reference to the database.
-    final Database db = await _db.database;
+    final db = await _db.database;
 
     // Insert the Task into the correct table. You might also specify the
     // `conflictAlgorithm` to use in case the same Task is inserted twice.
@@ -34,7 +34,7 @@ class StepDataSourceImpl extends StepDataSource {
   @override
   Future<void> deleteStep(Step step) async {
     // Get a reference to the database.
-    final Database db = await _db.database;
+    final db = await _db.database;
      // Remove the Task from the Database.
     await db.delete(
       'step',
@@ -48,7 +48,7 @@ class StepDataSourceImpl extends StepDataSource {
   @override
   Future<List<Step>> getsteps(Category category) async {
     // Get a reference to the database.
-    final Database db = await _db.database;
+    final  db = await _db.database;
      // Query the table for all The Tasks.
     final List<Map<String, dynamic>> maps = await db
         .query('task', where: "categoryId = ?", whereArgs: [category.id], orderBy: 'stepNum');
@@ -66,7 +66,7 @@ class StepDataSourceImpl extends StepDataSource {
   @override
   Future<void> updateStep(Step step) async {
     // Get a reference to the database.
-    final Database db = await _db.database;
+    final db = await _db.database;
     // Update the given Task.
     await db.update(
       'step',
