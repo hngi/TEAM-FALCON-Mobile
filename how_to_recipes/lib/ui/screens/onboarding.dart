@@ -101,7 +101,7 @@ class _OnboardingState extends State<Onboarding> {
                       margin: EdgeInsets.only(top:50),
                      child: TextField(
                        decoration: InputDecoration(
-                         hintText: 'Preffered display name',
+                         hintText: '  Preferred display name',
                        ),
                       ),
                     ),
