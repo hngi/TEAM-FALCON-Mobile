@@ -7,6 +7,7 @@ import 'package:how_to_recipes/locator.dart';
 import 'package:how_to_recipes/ui/router..dart';
 import 'package:how_to_recipes/ui/screens/saved_recipes_screen.dart';
 import 'package:how_to_recipes/ui/screens/splash_screen.dart';
+import 'package:how_to_recipes/ui/screens/view_steps.dart';
 import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.light(),
-      home: AddSteps(),
+      home: ViewSteps(),
       //home: SavedRecipesScreen(),
     );
 
