@@ -5,7 +5,7 @@ import 'package:how_to_recipes/viewmodels/base_veiw_model.dart';
 
 import '../locator.dart';
 
-class SavedResponseVM extends BaseViewModel{
+class SavedRecipesVM extends BaseViewModel{
   final _data = locator<CategoryDataSource>();
   List<Category> _list = [];
   List<Category> get list => _list;
