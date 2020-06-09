@@ -12,7 +12,6 @@ class SavedRecipesScreen extends StatefulWidget {
 }
 
 class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
-  var _SavedRecipes = <SavedRecipe>[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,11 +108,4 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
       ),
     );
   }
-}
-
-class SavedRecipe {
-  final String image;
-  final String title;
-
-  SavedRecipe({this.image, this.title});
 }
