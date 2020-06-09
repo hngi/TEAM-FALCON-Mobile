@@ -1,24 +1,25 @@
 import 'dart:convert';
 
-class Step {
-  String id;
+class AStep {
+  int id;
   String description;
   int categoryId;
   int step;
-  Step({
+  AStep({
     this.id,
     this.description,
     this.categoryId,
     this.step,
   });
+  
 
-  Step copyWith({
-    String id,
+  AStep copyWith({
+    int id,
     String description,
     int categoryId,
     int step,
   }) {
-    return Step(
+    return AStep(
       id: id ?? this.id,
       description: description ?? this.description,
       categoryId: categoryId ?? this.categoryId,
@@ -28,17 +29,17 @@ class Step {
 
   Map<String, dynamic> toMap() {
     return {
-      //'id': id,
+      'id': id,
       'description': description,
       'categoryId': categoryId,
       'step': step,
     };
   }
 
-  static Step fromMap(Map<String, dynamic> map) {
+  static AStep fromMap(Map<String, dynamic> map) {
     if (map == null) return null;
-
-    return Step(
+  
+    return AStep(
       id: map['id'],
       description: map['description'],
       categoryId: map['categoryId'],
@@ -48,29 +49,29 @@ class Step {
 
   String toJson() => json.encode(toMap());
 
-  static Step fromJson(String source) => fromMap(json.decode(source));
+  static AStep fromJson(String source) => fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Step(id: $id, description: $description, categoryId: $categoryId, step: $step)';
+    return 'AStep(id: $id, description: $description, categoryId: $categoryId, step: $step)';
   }
 
   @override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
-
-    return o is Step &&
-        o.id == id &&
-        o.description == description &&
-        o.categoryId == categoryId &&
-        o.step == step;
+  
+    return o is AStep &&
+      o.id == id &&
+      o.description == description &&
+      o.categoryId == categoryId &&
+      o.step == step;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-        description.hashCode ^
-        categoryId.hashCode ^
-        step.hashCode;
+      description.hashCode ^
+      categoryId.hashCode ^
+      step.hashCode;
   }
 }

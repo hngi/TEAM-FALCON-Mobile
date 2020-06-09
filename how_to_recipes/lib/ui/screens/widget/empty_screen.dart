@@ -4,10 +4,7 @@ class EmptyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        'No Data',
-        style: TextStyle(fontSize: 30),
-      ),
+      child: Image.asset('assets/images/Group277.png'),
     );
   }
 }

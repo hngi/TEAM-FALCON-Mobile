@@ -5,17 +5,18 @@ import 'package:how_to_recipes/locator.dart';
 import 'package:sqflite/sqflite.dart';
 
 abstract class StepDataSource {
-  Future<void> addSteps(Step step);
-  Future<List<Step>> getsteps(Category category);
-  Future<void> updateStep(Step step);
-  Future<void> deleteStep(Step step);
+  Future<void> addSteps(AStep step);
+  Future<List<AStep>> getsteps(Category category);
+  Future<void> updateStep(AStep step);
+  Future<void> deleteStep(AStep step);
+  Future<int> getLastId();
 }
 
 class StepDataSourceImpl extends StepDataSource {
   final _db = locator<DatabaseH>();
 
   @override
-  Future<void> addSteps(Step step) async {
+  Future<void> addSteps(AStep step) async {
     // Get a reference to the database.
     final db = await _db.database;
 
@@ -32,7 +33,7 @@ class StepDataSourceImpl extends StepDataSource {
   }
 
   @override
-  Future<void> deleteStep(Step step) async {
+  Future<void> deleteStep(AStep step) async {
     // Get a reference to the database.
     final db = await _db.database;
      // Remove the Task from the Database.
@@ -46,16 +47,16 @@ class StepDataSourceImpl extends StepDataSource {
   }
 
   @override
-  Future<List<Step>> getsteps(Category category) async {
+  Future<List<AStep>> getsteps(Category category) async {
     // Get a reference to the database.
     final  db = await _db.database;
      // Query the table for all The Tasks.
     final List<Map<String, dynamic>> maps = await db
-        .query('task', where: "categoryId = ?", whereArgs: [category.id], orderBy: 'stepNum');
+        .query('step', where: "categoryId = ?", whereArgs: [category.id], orderBy: 'stepNum');
 
     // Convert the List<Map<String, dynamic> into a List<Step>.
     return List.generate(maps.length, (i) {
-      return Step(
+      return AStep(
           id: maps[i]['id'],
           description: maps[i]['name'],
           categoryId: maps[i]['categoryId'],
@@ -64,7 +65,7 @@ class StepDataSourceImpl extends StepDataSource {
   }
 
   @override
-  Future<void> updateStep(Step step) async {
+  Future<void> updateStep(AStep step) async {
     // Get a reference to the database.
     final db = await _db.database;
     // Update the given Task.
@@ -76,5 +77,17 @@ class StepDataSourceImpl extends StepDataSource {
       // Pass the Task's id as a whereArg to prevent SQL injection.
       whereArgs: [step.id],
     );
+  }
+
+  @override
+  Future<int> getLastId() async {
+    // Get a reference to the database.
+    final  db = await _db.database;
+     // Query the table for all The Tasks.
+    final List<Map<String, dynamic>> maps = await db
+        .query('step');
+
+    // Convert the List<Map<String, dynamic> into a List<Step>.
+    return maps.length;
   }
 }

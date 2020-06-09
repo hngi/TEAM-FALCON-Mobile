@@ -8,6 +8,7 @@ abstract class CategoryDataSource {
   Future<List<Category>> getCategory();
   Future<void> updateCategory(Category step);
   Future<void> deleteCategory(Category step);
+  Future<int> getLastId();
 }
 
 class CategoryDataSourceImpl extends CategoryDataSource {
@@ -74,5 +75,17 @@ class CategoryDataSourceImpl extends CategoryDataSource {
       // Pass the Category's id as a whereArg to prevent SQL injection.
       whereArgs: [category.id],
     );
+  }
+
+  @override
+  Future<int> getLastId() async {
+    // Get a reference to the database.
+    final  db = await _db.database;
+     // Query the table for all The Tasks.
+    final List<Map<String, dynamic>> maps = await db
+        .query('category');
+
+    // Convert the List<Map<String, dynamic> into a List<Step>.
+    return maps.length;
   }
 }

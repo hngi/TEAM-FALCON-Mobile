@@ -76,8 +76,12 @@ class _OnboardingState extends State<Onboarding> {
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
-                  child:
-                      model.index == 0 ? Text('Continue',style: TextStyle(fontSize: 18),) : Text('Get Started',style: TextStyle(fontSize: 18)),
+                  child: model.index == 0
+                      ? Text(
+                          'Continue',
+                          style: TextStyle(fontSize: 18),
+                        )
+                      : Text('Get Started', style: TextStyle(fontSize: 18)),
                   color: Constants.korange,
                   textColor: Colors.white,
                   onPressed: () =>

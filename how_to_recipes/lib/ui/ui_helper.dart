@@ -18,9 +18,39 @@ class Constants {
   static const kPaddingM = 16.0;
   static const kPaddingL = 32.0;
 
+  static const kinputBorder = InputDecoration(
+    hintText: 'Prefered display name',
+    focusedBorder: OutlineInputBorder(
+      borderRadius: const BorderRadius.all(
+        const Radius.circular(15.0),
+      ),
+      borderSide: BorderSide(
+        style: BorderStyle.solid,
+      ),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: const BorderRadius.all(
+        const Radius.circular(15.0),
+      ),
+      borderSide: BorderSide(
+        style: BorderStyle.solid,
+      ),
+    ),
+    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+    border: OutlineInputBorder(
+      borderRadius: const BorderRadius.all(
+        const Radius.circular(15.0),
+      ),
+      borderSide: BorderSide(
+        style: BorderStyle.solid,
+      ),
+    ),
+  );
+
   static const kcolor1 = Color(0xFF1D1754);
   static const kcolor2 = Color(0xFFC4C4C4);
   static const korange = Color(0xFFFFAC50);
+  static const kcolor3 = Color(0xFFFC7A1E);
   static const kdarkOrange = Color(0xFF8E3900);
 
   static ThemeData lightTheme = ThemeData(
@@ -68,10 +98,9 @@ class Constants {
   );
 }
 
-
 class AppStateNotifier extends ChangeNotifier {
   final keystorage = locator<KeyStorageService>();
- 
+
   void updateTheme() {
     keystorage.isDarkMOde = !keystorage.isDarkMOde;
     notifyListeners();
