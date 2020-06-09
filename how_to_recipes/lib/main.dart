@@ -4,7 +4,6 @@ import 'package:how_to_recipes/core/services/navigation/navigation_service.dart'
 import 'package:how_to_recipes/core/utils/logger.dart';
 import 'package:how_to_recipes/locator.dart';
 import 'package:how_to_recipes/ui/router..dart';
-import 'package:how_to_recipes/ui/screens/saved_recipes_screen.dart';
 import 'package:how_to_recipes/ui/screens/splash_screen.dart';
 import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +22,9 @@ class MyApp extends StatelessWidget {
   final keystorage = locator<KeyStorageService>();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return Consumer<AppStateNotifier>(
+        builder: (BuildContext context, AppStateNotifier value, Widget child) =>
+            MaterialApp(
               title: 'Recipe Diary',
               theme: Constants.lightTheme,
               darkTheme: Constants.darkTheme,
@@ -31,6 +32,6 @@ class MyApp extends StatelessWidget {
               onGenerateRoute: Router.generateRoute,
               home: SplashScreen(),
               //    home: SavedRecipesScreen(),
-            );
+            ));
   }
 }
