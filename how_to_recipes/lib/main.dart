@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+import 'package:how_to_recipes/ui/screens/onboarding.dart';
+=======
 import 'package:how_to_recipes/core/services/key_storage/key_storage_service.dart';
 import 'package:how_to_recipes/core/services/navigation/navigation_service.dart';
 import 'package:how_to_recipes/core/utils/logger.dart';
 import 'package:how_to_recipes/locator.dart';
 import 'package:how_to_recipes/ui/router..dart';
 import 'package:how_to_recipes/ui/screens/saved_recipes_screen.dart';
+>>>>>>> 1e4b4ec4103e65ad9d324a7138cadbf0c56d5db2
 import 'package:how_to_recipes/ui/screens/splash_screen.dart';
 import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +27,13 @@ class MyApp extends StatelessWidget {
   final keystorage = locator<KeyStorageService>();
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData.light(),
+      home: Onboarding(),
+    );
+=======
     return Consumer<AppStateNotifier>(
         builder: (BuildContext context, AppStateNotifier value, Widget child) =>
             MaterialApp(
@@ -34,5 +45,6 @@ class MyApp extends StatelessWidget {
               home: SplashScreen(),
               //    home: SavedRecipesScreen(),
             ));
+>>>>>>> 1e4b4ec4103e65ad9d324a7138cadbf0c56d5db2
   }
 }
