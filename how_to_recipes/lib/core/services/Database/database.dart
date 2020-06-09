@@ -1,46 +1,38 @@
-
 import 'dart:io';
 
-import 'package:google_fonts/google_fonts.dart';
-import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-abstract class DataBaseProvider{
-    Future<Database> get database;
+abstract class DatabaseH {
+  Future<Database> get database;
 }
 
-
-class DataBaseImpl extends DataBaseProvider{
+class DatabaseHImpl extends DatabaseH {
   Database _database;
+
   @override
   // TODO: implement database
   Future<Database> get database async {
-     if (_database != null) return _database;
-    // if _database is null we instantiate it
-    _database = await initDB();
+    print('called');
+    if (_database == null) {
+      _database = await initDB();
+    }
     return _database;
   }
 
   Future<Database> initDB() async {
-    Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentsDirectory.path, "Recipes.db");
-    return await openDatabase(path, version: 1, onOpen: (db) {},
-        onCreate: (Database db, int version) async {
-      await db.execute("CREATE TABLE Task ("
-          "id INTEGER PRIMARY KEY,"
-          "title TEXT,"
-          "description TEXT,"
-          "image TEXT,"
-          "created_at TEXT"
-          ")");
-      await db.execute("CREATE TABLE Step ("
-          "id INTEGER PRIMARY KEY,"
-          "description TEXT,"
-          "taskId INTEGER,"
-          ")");
-    });
+    Directory directory = await getApplicationDocumentsDirectory();
+    String path = directory.path + 'Tasks.db';
+    var database = await openDatabase(path, version: 1, onCreate: _createDb);
+    return database;
   }
 
+  void _createDb(Database db, int newVersion) async {
+    await db.execute(
+        "CREATE TABLE step(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, categoryId INTEGER, stepNum INTEGER)");
+    await db
+        .execute("CREATE TABLE category(id INTEGER PRIMARY KEY, title TEXT, description TEXT, image TEXT, createdAt TEXT)");
+    print('db created');
+  }
 }
