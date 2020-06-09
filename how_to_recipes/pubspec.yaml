@@ -48,6 +48,9 @@ dev_dependencies:
     sdk: flutter
     
   mockito: ^4.1.1
+
+  # Removed Upgradeable option because it dosen't support flutter sdk 1.17.2.
+  flutter_svg: 0.17.4
   
 
 # For information on the generic Dart part of this file, see the
