@@ -19,7 +19,7 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
-          'AppBar Demo',
+          'Saved Recipes',
           style: TextStyle(fontSize: 24.0, color: Colors.black),
         ),
         actions: <Widget>[
@@ -29,7 +29,7 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
             iconSize: 32.0,
             color: Color(0xFFFFAC50),
             onPressed: () {
-              //scaffoldKey.currentState.showSnackBar(snackBar);
+             
             },
           ),
         ],
