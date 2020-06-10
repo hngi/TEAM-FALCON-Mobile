@@ -11,55 +11,87 @@ class RecipeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(category.toString());
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Image.file(
-            File(category.imagePath),
-            alignment: Alignment.topCenter,
-          ),
-          SizedBox(height: 30.0),
-          Container(
-              margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
-              padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
-              child: Card(
-                child: Column(
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "Meal",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25.0,
-                          letterSpacing: 1,
-                        ),
-                      ),
-                    ),
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          category.title,
-                          style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 15.0,
-                          ),
-                        ))
-                  ],
-                ),
-              )),
-          Container(
-              margin: EdgeInsets.fromLTRB(10, 20, 10, 5),
-              child: Align(
-                alignment: Alignment.topLeft,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Top(
+              category: category,
+            ),
+            Container(
+                padding: EdgeInsets.all(16),
                 child: Text(
-                  category.description,
+                  'Steps',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
                   ),
+                )),
+            Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  category.description,
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Top extends StatelessWidget {
+  final Category category;
+
+  const Top({Key key, this.category}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 240.0,
+      child: Stack(
+        children: <Widget>[
+          category.imagePath.isEmpty
+              ? Image.asset(
+                  'assets/images/sample_recipe.png',
+                  height: 240.0,
+                  width: double.infinity,
+                )
+              : Image.file(
+                  File(category.imagePath),
+                  alignment: Alignment.center,
+                  height: 240.0,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
                 ),
-              ))
+          Container(
+            margin: EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(15)),
+            child: IconButton(
+              icon: Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: () {},
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                category.title,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25.0,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

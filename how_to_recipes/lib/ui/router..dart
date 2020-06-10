@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:how_to_recipes/core/constants/view_routes.dart';
+import 'package:how_to_recipes/core/models/task.dart';
 import 'package:how_to_recipes/ui/screens/HomeScreen.dart';
 import 'package:how_to_recipes/ui/screens/add_steps.dart';
 import 'package:how_to_recipes/ui/screens/onboarding.dart';
@@ -32,7 +33,8 @@ class Router {
       case ViewRoutes.onboarding:
         return Onboarding();
       case ViewRoutes.recipedetails:
-        return RecipeDetails();
+      final post = settings.arguments as Category;
+        return RecipeDetails(category: post,);
       case ViewRoutes.savedrecipe:
         return SavedRecipesScreen();
       case ViewRoutes.addrecipe:

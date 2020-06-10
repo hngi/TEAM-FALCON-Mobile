@@ -7,7 +7,7 @@ import 'package:how_to_recipes/viewmodels/base_veiw_model.dart';
 
 import '../locator.dart';
 
-class SavedRecipesVM extends BaseViewModel{
+class SavedRecipesVM extends BaseViewModel {
   final _data = locator<CategoryDataSource>();
   final navigation = locator<NavigationService>();
   List<Category> _list = [];
@@ -34,12 +34,11 @@ class SavedRecipesVM extends BaseViewModel{
   }
 
   Future<void> deleteRecipe(Category category) async {
-    await _data.deleteCategory(category); 
-     await _attemptFetchData();
+    await _data.deleteCategory(category);
+    await _attemptFetchData();
   }
 
-  void newRecipe(){
-    
+  void newRecipe() {
     navigation.pushNamed(ViewRoutes.addrecipe);
     navigation.pop();
   }

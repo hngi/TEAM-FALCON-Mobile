@@ -54,6 +54,7 @@ class _OnboardingState extends State<Onboarding> {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<OnBoardingVM>.reactive(
+      onModelReady: (model) => model.init(),
       builder: (context, model, _) => Scaffold(
         body: Column(
           children: <Widget>[

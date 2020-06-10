@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:how_to_recipes/core/models/task.dart';
 import 'package:how_to_recipes/ui/screens/view_steps.dart';
@@ -79,7 +81,14 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
   Widget _buildRow(Category category, BuildContext context) {
     final model = Provider.of<SavedRecipesVM>(context);
     return InkWell(
-      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => RecipeDetails(category: category,)));},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => RecipeDetails(
+                      category: category,
+                    )));
+      },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
@@ -94,11 +103,20 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
                   flex: 0,
                   child: RoundRectangularImage(
                     borderRadius: 15.0,
-                    image: Image.asset(
-                      'assets/images/sample_recipe.png',
-                      height: 150.0,
-                      width: 100.0,
-                    ),
+                    image: category.imagePath.isEmpty
+                        ? Image.asset(
+                            'assets/images/sample_recipe.png',
+                            height: 150.0,
+                            width: 100.0,
+                          )
+                        : Image.file(
+                            File(category.imagePath),
+                            alignment: Alignment.center,
+                            height: 150.0,
+                            width: 100.0,
+                            fit: BoxFit.cover,
+                            
+                          ),
                   )),
               Expanded(
                   flex: 1,
@@ -115,7 +133,9 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
                         Icons.delete,
                         size: 32.0,
                       ),
-                      onPressed: () {model.deleteRecipe(category);})),
+                      onPressed: () {
+                        model.deleteRecipe(category);
+                      })),
             ],
           ),
         ),

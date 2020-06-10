@@ -57,7 +57,7 @@ class CategoryDataSourceImpl extends CategoryDataSource {
           id: maps[i]['id'],
           title: maps[i]['title'],
           description: maps[i]['description'],
-          imagePath: maps[i]['image'],
+          imagePath: maps[i]['imagePath'],
           createdAt: maps[i]['createdAt']);
     });
   }
