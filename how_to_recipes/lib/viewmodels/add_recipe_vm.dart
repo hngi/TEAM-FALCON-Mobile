@@ -47,6 +47,9 @@ class AddRecipeVM extends BaseViewModel with Validators {
     print('ubbbbvcxxcvbgfdsasdfghjhgfds');
     var data = Category(id: _catId + 1, title: mealController.text, description: descController.text );
     await categoryDb.addCategory(data);
+    mealController.clear();
+    descController.clear();
+    _image = '';
     nav.pop();
   }
 

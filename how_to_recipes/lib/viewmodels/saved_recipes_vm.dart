@@ -1,12 +1,15 @@
+import 'package:how_to_recipes/core/constants/view_routes.dart';
 import 'package:how_to_recipes/core/constants/view_state.dart';
 import 'package:how_to_recipes/core/datasources/task_datasource.dart';
 import 'package:how_to_recipes/core/models/task.dart';
+import 'package:how_to_recipes/core/services/navigation/navigation_service.dart';
 import 'package:how_to_recipes/viewmodels/base_veiw_model.dart';
 
 import '../locator.dart';
 
 class SavedRecipesVM extends BaseViewModel{
   final _data = locator<CategoryDataSource>();
+  final navigation = locator<NavigationService>();
   List<Category> _list = [];
   List<Category> get list => _list;
 
@@ -28,5 +31,9 @@ class SavedRecipesVM extends BaseViewModel{
     _list.isEmpty
         ? setState(ViewState.NoDataAvailable)
         : setState(ViewState.Idle);
+  }
+
+  void newRecipe(){
+    navigation.pushNamed(ViewRoutes.addrecipe);
   }
 }
