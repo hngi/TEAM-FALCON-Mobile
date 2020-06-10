@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:how_to_recipes/core/models/step.dart';
-import 'package:how_to_recipes/ui/screens/widget/add_step_bottom.dart';
 import 'package:how_to_recipes/ui/screens/widget/state_responsive.dart';
 import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'package:how_to_recipes/viewmodels/add_recipe_vm.dart';
@@ -11,29 +9,29 @@ import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 
 class AddRecipe extends StatelessWidget {
-  Widget _newWidget(AStep step) {
-    print(step);
-    return Container(
-        margin: EdgeInsets.only(top: 10),
-        decoration: BoxDecoration(
-            color: Constants.kcolor3, borderRadius: BorderRadius.circular(15)),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: <Widget>[
-              Text(
-                step.step.toString(),
-                style: TextStyle(color: Colors.white),
-              ),
-              SizedBox(width: 10),
-              Text(
-                step.description,
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-        ));
-  }
+//  Widget _newWidget(AStep step) {
+//    print(step);
+//    return Container(
+//        margin: EdgeInsets.only(top: 10),
+//        decoration: BoxDecoration(
+//            color: Constants.kcolor3, borderRadius: BorderRadius.circular(15)),
+//        child: Padding(
+//          padding: const EdgeInsets.all(8.0),
+//          child: Row(
+//            children: <Widget>[
+//              Text(
+//                step.step.toString(),
+//                style: TextStyle(color: Colors.white),
+//              ),
+//              SizedBox(width: 10),
+//              Text(
+//                step.description,
+//                style: TextStyle(color: Colors.white),
+//              ),
+//            ],
+//          ),
+//        ));
+//  }
 
   @override
   Widget build(BuildContext context) {

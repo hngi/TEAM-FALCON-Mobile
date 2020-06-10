@@ -11,15 +11,15 @@ class HomeScreenVM extends BaseViewModel {
   String _name;
   String get name => _name;
 
-  Future init(){
+  void init() {
     _name = _keystorage.name;
   }
 
-  void newRecipe(){
+  void newRecipe() {
     _navigationservice.pushNamed(ViewRoutes.addrecipe);
   }
 
-  void savedRecipe(){
-     _navigationservice.pushNamed(ViewRoutes.savedrecipe);
+  void savedRecipe() {
+    _navigationservice.pushNamed(ViewRoutes.savedrecipe);
   }
 }

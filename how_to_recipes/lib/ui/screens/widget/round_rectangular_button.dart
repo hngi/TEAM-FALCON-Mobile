@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class RoundRectangularButton extends StatelessWidget {
-  double radius;
-  Color color;
-  Function onPressed;
-  RoundRectangularButton (this.radius, {this.color, this.onPressed});
+  final double radius;
+  final Color color;
+  final Function onPressed;
+  RoundRectangularButton(this.radius, {this.color, this.onPressed});
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(

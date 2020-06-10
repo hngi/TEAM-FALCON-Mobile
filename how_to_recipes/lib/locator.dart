@@ -14,7 +14,6 @@ GetIt locator = GetIt.instance;
 /// in the app by using locator<Service>() call.
 ///   - Also sets up factor methods for view models.
 Future<void> setupLocator({bool test = false}) async {
-  
   // Services
   locator.registerLazySingleton<NavigationService>(
     () => NavigationServiceImpl(),
@@ -27,7 +26,8 @@ Future<void> setupLocator({bool test = false}) async {
   }
 
   // Utils
-  locator.registerLazySingleton<CategoryDataSource>(() => CategoryDataSourceImpl());
+  locator.registerLazySingleton<CategoryDataSource>(
+      () => CategoryDataSourceImpl());
   locator.registerLazySingleton<StepDataSource>(() => StepDataSourceImpl());
 
   // External

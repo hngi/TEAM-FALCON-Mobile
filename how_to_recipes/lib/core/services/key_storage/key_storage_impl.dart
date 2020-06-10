@@ -75,7 +75,7 @@ class KeyStorageServiceImpl implements KeyStorageService {
   bool get isDarkMOde => _getFromDisk(theme) ?? false;
 
   @override
-  void set isDarkMOde(bool _isDarkMOde) {
+  set isDarkMOde(bool _isDarkMOde) {
     _saveToDisk(theme, _isDarkMOde);
   }
 
@@ -83,7 +83,7 @@ class KeyStorageServiceImpl implements KeyStorageService {
   String get name => _getFromDisk(fullname) ?? "";
 
   @override
-  void set name(String _name) {
+  set name(String _name) {
     _saveToDisk(fullname, _name);
   }
 }

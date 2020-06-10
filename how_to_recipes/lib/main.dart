@@ -9,7 +9,7 @@ import 'package:how_to_recipes/ui/screens/splash_screen.dart';
 import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'package:provider/provider.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   setupLogger(test: false);
