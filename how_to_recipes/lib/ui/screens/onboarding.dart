@@ -1,4 +1,5 @@
 import 'package:how_to_recipes/viewmodels/onboarding_vm.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:flutter/material.dart';
@@ -122,35 +123,60 @@ class Onboarding1 extends StatelessWidget {
   }
 }
 
-class Onboarding2 extends StatelessWidget {
+class Onboarding2 extends StatefulWidget {
+  @override
+  _Onboarding2State createState() => _Onboarding2State();
+}
+
+class _Onboarding2State extends State<Onboarding2> {
+  // TextEditingController nameController;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   nameController = TextEditingController();
+  // }
+
+  // @override
+  // void dispose() {
+  //   nameController.dispose();
+
+  //   super.dispose();
+  // }
+
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<OnBoardingVM>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 100),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Text(
-                'Hi, Can we please have your name?',
-                style: TextStyle(fontSize: 26, color: Constants.kcolor1),
-                textAlign: TextAlign.center,
+      child: Form(
+        key: model.formKey,
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(top: 100),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  'Hi, Can we please have your name?',
+                  style: TextStyle(fontSize: 26, color: Constants.kcolor1),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 32,
-          ),
-          Expanded(child: Image.asset('assets/images/group265.png')),
-          SizedBox(
-            height: 32,
-          ),
-          Expanded(
-            child: Padding(
+            SizedBox(
+              height: 32,
+            ),
+            Expanded(child: Image.asset('assets/images/group265.png')),
+            SizedBox(
+              height: 32,
+            ),
+            Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              child: TextFormField(
+                controller: model.nameController,
+                validator: (value) =>
+                    model.validateTextField(model.nameController.text),
                 decoration: InputDecoration(
                   hintText: 'Prefered display name',
                   focusedBorder: OutlineInputBorder(
@@ -181,9 +207,9 @@ class Onboarding2 extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
