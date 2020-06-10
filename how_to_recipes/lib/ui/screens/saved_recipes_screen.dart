@@ -19,7 +19,7 @@ class SavedRecipesScreen extends StatefulWidget {
 class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<SavedRecipesVM>.reactive(
+    return ViewModelBuilder<SavedRecipesVM>.nonReactive(
         viewModelBuilder: () => SavedRecipesVM(),
         onModelReady: (model) => model.init(),
         builder: (context, model, _) => Scaffold(
@@ -33,15 +33,15 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
                   'Saved Recipes',
                   style: TextStyle(fontSize: 24.0, color: Colors.black),
                 ),
-                actions: <Widget>[
-                  IconButton(
-                    icon: const Icon(Icons.help_outline),
-                    tooltip: 'Show Help',
-                    iconSize: 32.0,
-                    color: Color(0xFFFFAC50),
-                    onPressed: () {},
-                  ),
-                ],
+                // actions: <Widget>[
+                //   IconButton(
+                //     icon: const Icon(Icons.help_outline),
+                //     tooltip: 'Show Help',
+                //     iconSize: 32.0,
+                //     color: Color(0xFFFFAC50),
+                //     onPressed: () {},
+                //   ),
+                // ],
               ),
               body: Container(
                 padding: EdgeInsets.only(top: 20),
@@ -115,7 +115,6 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
                             height: 150.0,
                             width: 100.0,
                             fit: BoxFit.cover,
-                            
                           ),
                   )),
               Expanded(

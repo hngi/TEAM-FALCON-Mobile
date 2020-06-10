@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  setupLogger();
+  setupLogger(test: false);
   await setupLocator();
   runApp(MyApp());
 }

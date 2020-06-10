@@ -36,11 +36,11 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 100),
-                      SvgPicture.asset(
-                        "assets/images/Settings.svg",
-                        height: 40.0,
-                        width: 40.0,
-                      ),
+                      // SvgPicture.asset(
+                      //   "assets/images/Settings.svg",
+                      //   height: 40.0,
+                      //   width: 40.0,
+                      // ),
                     ]),
                   ),
                   SizedBox(height: 10),
@@ -56,10 +56,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: size.width * .9, // it just take the 50% width
-                    child: SearchBar(),
-                  ),
+                  SizedBox(height :15),
+                  // SizedBox(
+                  //   width: size.width * .9, // it just take the 50% width
+                  //   child: SearchBar(),
+                  // ),
                   MyCards(
                     heading: "New Recipe",
                     subHeading:
@@ -111,34 +112,32 @@ class MyCards extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Stack(
           children: <Widget>[
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 16, bottom: 16, left: 16, right: 100),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        heading,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontFamily: 'DMSans',
-                          color: Colors.white,
-                        ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 16, bottom: 16, left: 16, right: 100),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      heading,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontFamily: 'DMSans',
+                        color: Colors.white,
                       ),
-                      SizedBox(
-                        height: 10.0,
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      subHeading,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'DMSans',
+                        color: Colors.white,
                       ),
-                      Text(
-                        subHeading,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'DMSans',
-                          color: Colors.white,
-                        ),
-                      ),
-                    ]),
-              ),
+                    ),
+                  ]),
             ),
             Align(
               alignment: Alignment.bottomRight,

@@ -39,7 +39,8 @@ class SavedRecipesVM extends BaseViewModel {
   }
 
   void newRecipe() {
-    navigation.pushNamed(ViewRoutes.addrecipe);
-    navigation.pop();
+    print('clicked');
+    navigation.pushReplacementNamed(ViewRoutes.addrecipe);
+   
   }
 }
