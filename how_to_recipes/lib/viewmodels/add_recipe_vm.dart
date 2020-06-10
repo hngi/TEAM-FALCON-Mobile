@@ -44,8 +44,7 @@ class AddRecipeVM extends BaseViewModel with Validators {
   }
 
   Future<void> addRecipe() async {
-    print('ubbbbvcxxcvbgfdsasdfghjhgfds');
-    var data = Category(id: _catId + 1, title: mealController.text, description: descController.text );
+    var data = Category(id: _catId + 1, title: mealController.text, description: descController.text, imagePath: _image );
     await categoryDb.addCategory(data);
     mealController.clear();
     descController.clear();

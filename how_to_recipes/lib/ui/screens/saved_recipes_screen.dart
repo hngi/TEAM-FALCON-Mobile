@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:how_to_recipes/core/models/task.dart';
+import 'package:how_to_recipes/ui/screens/view_steps.dart';
 import 'package:how_to_recipes/ui/screens/widget/empty_screen.dart';
 import 'package:how_to_recipes/ui/screens/widget/round_rectangular_button.dart';
 import 'package:how_to_recipes/ui/screens/widget/rounded_rectangular_image.dart';
@@ -49,7 +50,9 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
                 child: RoundRectangularButton(
                   20.0,
                   color: Color(0xFFFFAC50),
-                  onPressed: () {model.newRecipe();},
+                  onPressed: () {
+                    model.newRecipe();
+                  },
                 ),
               ),
             ));
@@ -67,50 +70,54 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
             itemCount: model.list.length,
             padding: const EdgeInsets.all(16.0),
             itemBuilder: (context, index) {
-              return _buildRow(model.list[index]);
+              return _buildRow(model.list[index], context);
             }),
       ),
     );
   }
 
-  Widget _buildRow(Category category) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      elevation: 1.0,
-      child: Container(
-        height: 100.0,
-        padding: EdgeInsets.fromLTRB(12.0, 10.0, 16.0, 10.0),
-        child: Row(
-          children: <Widget>[
-            Expanded(
-                flex: 0,
-                child: RoundRectangularImage(
-                  borderRadius: 15.0,
-                  image: Image.asset(
-                    'assets/images/sample_recipe.png',
-                    height: 150.0,
-                    width: 100.0,
-                  ),
-                )),
-            Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Text(category.title,
-                      style: TextStyle(fontFamily: 'DMSans', fontSize: 18.0),
-                      textAlign: TextAlign.start),
-                )),
-            Expanded(
-                flex: 0,
-                child: IconButton(
-                    icon: Icon(
-                      Icons.more_vert,
-                      size: 32.0,
+  Widget _buildRow(Category category, BuildContext context) {
+    final model = Provider.of<SavedRecipesVM>(context);
+    return InkWell(
+      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => RecipeDetails(category: category,)));},
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        elevation: 1.0,
+        child: Container(
+          height: 100.0,
+          padding: EdgeInsets.fromLTRB(12.0, 10.0, 16.0, 10.0),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                  flex: 0,
+                  child: RoundRectangularImage(
+                    borderRadius: 15.0,
+                    image: Image.asset(
+                      'assets/images/sample_recipe.png',
+                      height: 150.0,
+                      width: 100.0,
                     ),
-                    onPressed: () {})),
-          ],
+                  )),
+              Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(category.title,
+                        style: TextStyle(fontFamily: 'DMSans', fontSize: 18.0),
+                        textAlign: TextAlign.start),
+                  )),
+              Expanded(
+                  flex: 0,
+                  child: IconButton(
+                      icon: Icon(
+                        Icons.delete,
+                        size: 32.0,
+                      ),
+                      onPressed: () {model.deleteRecipe(category);})),
+            ],
+          ),
         ),
       ),
     );

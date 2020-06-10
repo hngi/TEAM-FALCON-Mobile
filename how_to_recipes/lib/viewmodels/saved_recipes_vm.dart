@@ -33,6 +33,11 @@ class SavedRecipesVM extends BaseViewModel{
         : setState(ViewState.Idle);
   }
 
+  Future<void> deleteRecipe(Category category) async {
+    await _data.deleteCategory(category); 
+     _chechIfDataIsEmpty();
+  }
+
   void newRecipe(){
     navigation.pushNamed(ViewRoutes.addrecipe);
   }
