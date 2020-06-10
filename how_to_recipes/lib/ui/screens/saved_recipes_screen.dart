@@ -3,6 +3,8 @@ import 'package:how_to_recipes/core/models/task.dart';
 import 'package:how_to_recipes/ui/screens/widget/round_rectangular_button.dart';
 import 'package:how_to_recipes/ui/screens/widget/rounded_rectangular_image.dart';
 import 'package:how_to_recipes/ui/screens/widget/state_responsive.dart';
+import 'package:how_to_recipes/ui/screens/widget/trans_app_bar.dart';
+import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'package:how_to_recipes/viewmodels/saved_recipes_vm.dart';
 import 'package:stacked/stacked.dart';
 
@@ -15,26 +17,18 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFE5E5E5),
-      appBar: AppBar(
-        centerTitle: false,
-        automaticallyImplyLeading: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text(
-          'Saved Recipes',
-          style: TextStyle(fontSize: 24.0, color: Colors.black),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.help_outline),
-            tooltip: 'Show Help',
+      backgroundColor: Constants.lightBG,
+      appBar: TransAppBar(
+          " Saved Recipes",
+          actions: <Widget>[
+            IconButton(
+            icon: Icon(Icons.help_outline),
             iconSize: 32.0,
-            color: Color(0xFFFFAC50),
+            color: Constants.weirdBlue,
             onPressed: () {},
           ),
-        ],
-      ),
+          ],
+        ),
       body: Container(
         padding: EdgeInsets.only(top: 20),
         child: _buildSuggestions(),
@@ -43,7 +37,12 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
         padding: EdgeInsets.fromLTRB(0, 0, 5, 48),
         child: RoundRectangularButton(
           20.0,
+          text: 'Add new',
           color: Color(0xFFFFAC50),
+          constraints: BoxConstraints.expand(
+            width: 180.0,
+            height: 50.0,
+          ),
           onPressed: () {},
         ),
       ),

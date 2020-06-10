@@ -6,13 +6,17 @@ class Constants {
   static String appName = "GEWC Mobile";
 
   //Colors for theme
-  static Color lightPrimary = Color(0xfffcfcff);
+  static Color lightPrimary = Color(0xffE5E5E5);
   static Color darkPrimary = Colors.black;
   static Color lightAccent = Colors.black;
   static Color darkAccent = Colors.white;
-  static Color lightBG = Color(0xfffcfcff);
+  static Color lightBG = Color(0xffE5E5E5);
   static Color darkBG = Colors.black;
   static Color badgeColor = Colors.red;
+  static Color weirdBlue = Color(0xff1D1754);
+  static Color lightOrange = Color(0xFFFFAC50);
+
+  static const kfont = 'DMSans';
 
   static const kPaddingS = 8.0;
   static const kPaddingM = 16.0;
@@ -63,10 +67,9 @@ class Constants {
   );
 }
 
-
 class AppStateNotifier extends ChangeNotifier {
   final keystorage = locator<KeyStorageService>();
- 
+
   void updateTheme() {
     keystorage.isDarkMOde = !keystorage.isDarkMOde;
     notifyListeners();

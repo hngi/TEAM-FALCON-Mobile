@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:how_to_recipes/ui/ui_helper.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -24,7 +25,8 @@ class SplashScreen extends StatelessWidget {
             style: TextStyle(
                 fontFamily: 'DMSans',
                 fontWeight: FontWeight.w500,
-                fontSize: 24.0),
+                fontSize: 24.0,
+                color: Constants.weirdBlue),
             textAlign: TextAlign.center,
           )
         ],
