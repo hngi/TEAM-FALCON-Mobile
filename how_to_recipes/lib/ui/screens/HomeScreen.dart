@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:how_to_recipes/ui/screens/widget/search_bar.dart';
 import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'package:how_to_recipes/viewmodels/home_screen_vm.dart';
 import 'package:stacked/stacked.dart';
@@ -29,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                       Expanded(
                         child: Text(
                           "Hi, ${model.name}",
-                          style: Theme.of(context).textTheme.display1.copyWith(
+                          style: Theme.of(context).textTheme.headline4.copyWith(
                               fontWeight: FontWeight.w500,
                               fontFamily: 'DMSans',
                               color: Color(0xFF1D1754)),
@@ -56,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height :15),
+                  SizedBox(height: 15),
                   // SizedBox(
                   //   width: size.width * .9, // it just take the 50% width
                   //   child: SearchBar(),

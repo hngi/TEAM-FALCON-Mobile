@@ -1,5 +1,4 @@
 import 'package:how_to_recipes/core/models/step.dart';
-import 'package:how_to_recipes/core/models/task.dart';
 import 'package:how_to_recipes/core/services/Database/database.dart';
 import 'package:how_to_recipes/locator.dart';
 import 'package:sqflite/sqflite.dart';
@@ -36,7 +35,7 @@ class StepDataSourceImpl extends StepDataSource {
   Future<void> deleteStep(AStep step) async {
     // Get a reference to the database.
     final db = await _db.database;
-     // Remove the Task from the Database.
+    // Remove the Task from the Database.
     await db.delete(
       'step',
       // Use a `where` clause to delete a specific Task.
@@ -49,10 +48,10 @@ class StepDataSourceImpl extends StepDataSource {
   @override
   Future<List<AStep>> getsteps(int category) async {
     // Get a reference to the database.
-    final  db = await _db.database;
-     // Query the table for all The Tasks.
-    final List<Map<String, dynamic>> maps = await db
-        .query('step', where: "categoryId = ?", whereArgs: [category], orderBy: 'stepNum');
+    final db = await _db.database;
+    // Query the table for all The Tasks.
+    final List<Map<String, dynamic>> maps = await db.query('step',
+        where: "categoryId = ?", whereArgs: [category], orderBy: 'stepNum');
 
     // Convert the List<Map<String, dynamic> into a List<Step>.
     return List.generate(maps.length, (i) {
@@ -82,10 +81,9 @@ class StepDataSourceImpl extends StepDataSource {
   @override
   Future<int> getLastId() async {
     // Get a reference to the database.
-    final  db = await _db.database;
-     // Query the table for all The Tasks.
-    final List<Map<String, dynamic>> maps = await db
-        .query('step');
+    final db = await _db.database;
+    // Query the table for all The Tasks.
+    final List<Map<String, dynamic>> maps = await db.query('step');
 
     // Convert the List<Map<String, dynamic> into a List<Step>.
     return maps.length;

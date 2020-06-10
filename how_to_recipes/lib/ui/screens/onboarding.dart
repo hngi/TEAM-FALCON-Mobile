@@ -1,6 +1,5 @@
 import 'package:how_to_recipes/viewmodels/onboarding_vm.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -155,7 +154,7 @@ class _Onboarding2State extends State<Onboarding2> {
         child: Column(
           children: <Widget>[
             Expanded(
-                          child: Container(
+              child: Container(
                 margin: EdgeInsets.only(top: 100),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),

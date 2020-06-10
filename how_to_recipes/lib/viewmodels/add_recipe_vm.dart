@@ -7,7 +7,6 @@ import 'package:how_to_recipes/core/models/step.dart';
 import 'package:how_to_recipes/core/models/task.dart';
 import 'package:how_to_recipes/core/services/navigation/navigation_service.dart';
 import 'package:how_to_recipes/locator.dart';
-import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'package:how_to_recipes/viewmodels/base_veiw_model.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -17,8 +16,6 @@ class AddRecipeVM extends BaseViewModel with Validators {
   final categoryDb = locator<CategoryDataSource>();
   final picker = ImagePicker();
   final formKey = GlobalKey<FormState>();
-
-  
 
   final TextEditingController mealController = TextEditingController();
   final TextEditingController descController = TextEditingController();
@@ -31,22 +28,25 @@ class AddRecipeVM extends BaseViewModel with Validators {
 
   List<Widget> _widgets = [];
   List<Widget> get widgets => _widgets;
-  var _stepId = 0;
+//  var _stepId = 0;
   var _catId = 0;
 
-  
-  Future init() {
+  void init() {
     setState(ViewState.Idle);
     _getCatId();
   }
 
   Future<void> _getCatId() async {
     print(_catId);
-    _stepId = await categoryDb.getLastId() ?? 0;
+    _catId = await categoryDb.getLastId() ?? 0;
   }
 
   Future<void> addRecipe() async {
-    var data = Category(id: _catId + 1, title: mealController.text, description: descController.text, imagePath: _image );
+    var data = Category(
+        id: _catId + 1,
+        title: mealController.text,
+        description: descController.text,
+        imagePath: _image);
     await categoryDb.addCategory(data);
     mealController.clear();
     descController.clear();
