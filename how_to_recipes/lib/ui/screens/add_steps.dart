@@ -10,28 +10,7 @@ import 'package:how_to_recipes/viewmodels/add_recipe_vm.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 
-class AddRecipe extends StatefulWidget {
-  @override
-  _State createState() => _State();
-}
-
-class _State extends State<AddRecipe> {
-  ScrollController controller;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    controller = ScrollController();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    controller.dispose();
-  }
-
+class AddRecipe extends StatelessWidget {
   Widget _newWidget(AStep step) {
     print(step);
     return Container(
@@ -92,17 +71,19 @@ class _State extends State<AddRecipe> {
             child: Form(
               key: model.formKey,
               child: SingleChildScrollView(
-                              child: Column(
+                child: Column(
                   children: <Widget>[
                     StateResponsive(
                       state: model.state,
                       dataFetchedWidget: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                         child: Container(
-                            height: 212.0,
-                            width: double.infinity,
-                            child: Image(image: FileImage(File(model.imagePath ?? '')),),
-                      ),),
+                          height: 212.0,
+                          child: Image(
+                            image: FileImage(File(model.imagePath ?? '')),
+                          ),
+                        ),
+                      ),
                       idleWidget: DottedBorder(
                         dashPattern: [6, 3, 2, 3],
                         strokeWidth: 2,

@@ -18,6 +18,8 @@ class AddRecipeVM extends BaseViewModel with Validators {
   final picker = ImagePicker();
   final formKey = GlobalKey<FormState>();
 
+  
+
   final TextEditingController mealController = TextEditingController();
   final TextEditingController descController = TextEditingController();
 
@@ -57,6 +59,14 @@ class AddRecipeVM extends BaseViewModel with Validators {
     print(pickedFile.path);
     _image = pickedFile.path;
     setState(ViewState.DataFetched);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    mealController.dispose();
+    descController.dispose();
   }
 
   // Future<void> _getStepId() async {
