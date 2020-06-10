@@ -153,14 +153,16 @@ class _Onboarding2State extends State<Onboarding2> {
         key: model.formKey,
         child: Column(
           children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(top: 100),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Text(
-                  'Hi, Can we please have your name?',
-                  style: TextStyle(fontSize: 26, color: Constants.kcolor1),
-                  textAlign: TextAlign.center,
+            Expanded(
+                          child: Container(
+                margin: EdgeInsets.only(top: 100),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Text(
+                    'Hi, Can we please have your name?',
+                    style: TextStyle(fontSize: 26, color: Constants.kcolor1),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ),

@@ -25,7 +25,7 @@ class SplashScreen extends StatelessWidget {
               width: 214.0,
             ),
             Text(
-              'CookApp',
+              'My Recipe Diary',
               style: TextStyle(
                   fontFamily: 'DMSans',
                   fontWeight: FontWeight.w500,

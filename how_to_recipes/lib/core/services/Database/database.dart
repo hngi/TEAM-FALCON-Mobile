@@ -32,7 +32,7 @@ class DatabaseHImpl extends DatabaseH {
     await db.execute(
         "CREATE TABLE step(id INTEGER PRIMARY KEY AUTOINCREMENT not null, name TEXT, categoryId INTEGER, stepNum INTEGER)");
     await db
-        .execute("CREATE TABLE category(id INTEGER PRIMARY KEY not null, title TEXT, description TEXT, image TEXT, createdAt TEXT)");
+        .execute("CREATE TABLE category(id INTEGER PRIMARY KEY not null, title TEXT, description TEXT, imagePath TEXT, createdAt TEXT)");
     print('db created');
   }
 }

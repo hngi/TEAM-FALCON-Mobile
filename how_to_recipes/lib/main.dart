@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           builder:
               (BuildContext context, AppStateNotifier value, Widget child) =>
                   MaterialApp(
-                    title: 'Recipe Diary',
+                    title: 'My Recipe Diary',
                     theme: Constants.lightTheme,
                     darkTheme: Constants.darkTheme,
                     navigatorKey: navigationService.navigatorKey,

@@ -6,7 +6,7 @@ import 'package:sqflite/sqflite.dart';
 
 abstract class StepDataSource {
   Future<void> addSteps(AStep step);
-  Future<List<AStep>> getsteps(Category category);
+  Future<List<AStep>> getsteps(int category);
   Future<void> updateStep(AStep step);
   Future<void> deleteStep(AStep step);
   Future<int> getLastId();
@@ -47,12 +47,12 @@ class StepDataSourceImpl extends StepDataSource {
   }
 
   @override
-  Future<List<AStep>> getsteps(Category category) async {
+  Future<List<AStep>> getsteps(int category) async {
     // Get a reference to the database.
     final  db = await _db.database;
      // Query the table for all The Tasks.
     final List<Map<String, dynamic>> maps = await db
-        .query('step', where: "categoryId = ?", whereArgs: [category.id], orderBy: 'stepNum');
+        .query('step', where: "categoryId = ?", whereArgs: [category], orderBy: 'stepNum');
 
     // Convert the List<Map<String, dynamic> into a List<Step>.
     return List.generate(maps.length, (i) {
