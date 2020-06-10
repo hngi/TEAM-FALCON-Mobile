@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../ui_helper.dart';
+
 class RoundRectangularButton extends StatelessWidget {
   final double radius;
   final String text;
@@ -27,6 +29,7 @@ class RoundRectangularButton extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18.0,
                 color: Colors.white,
+                                      fontFamily: Constants.kfont
               ),
           ),
 

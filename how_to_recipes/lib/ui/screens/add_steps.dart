@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:how_to_recipes/ui/ui_helper.dart';
 import 'widget/trans_app_bar.dart';
 import 'widget/round_rectangular_button.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class AddSteps extends StatefulWidget {
   @override
@@ -12,43 +16,57 @@ class _State extends State<AddSteps> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: TransAppBar(
-          "Create new recipe",
+          " Create new recipe",
           actions: <Widget>[
             IconButton(
                 onPressed: () {},
                 icon: Icon(
                   Icons.check,
-                  color: Colors.black,
+                  color: Constants.weirdBlue,
                 ))
           ],
         ),
         body: SafeArea(
-          child: Container(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Container(
-                  width: 500,
-                  height: 200,
-                  margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                  decoration: new BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        style: BorderStyle.solid,
+                    height: 200,
+                    margin: EdgeInsets.symmetric(vertical: 32.0),
+                    child: FlatButton(
+                      padding: EdgeInsets.all(4),
+                      onPressed: () {},
+                      child: DottedBorder(
+                        borderType: BorderType.RRect,
+                        radius: Radius.circular(22.0),
+                        color: Constants.lightOrange,
+                        strokeWidth: 2.0,
+                        dashPattern: [10, 10],
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            SvgPicture.asset('assets/images/camera.svg',
+                                semanticsLabel: 'Camera'),
+                                SizedBox(
+                                  height: 16.0,
+                                ),
+                            Text(
+                              'add image (optional)',
+                              style: TextStyle(
+                                fontFamily: Constants.kfont,
+                                fontSize: 18.0,
+                              ),
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
                       ),
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(22.0),
-                          topLeft: Radius.circular(22.0),
-                          topRight: Radius.circular(22.0),
-                          bottomRight: Radius.circular(22.0))),
-                  child: FlatButton(
-                    onPressed: () {},
-                    child: IconButton(
-                        icon: Icon(Icons.photo_camera), onPressed: null),
-                  ),
-                ),
+                    )),
                 Container(
-                  margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                  margin: EdgeInsets.only(bottom: 32.0),
                   child: TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
@@ -57,37 +75,35 @@ class _State extends State<AddSteps> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                  margin: EdgeInsets.only(bottom: 24.0),
                   child: TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Meal Description',
                     ),
+                    maxLines: 4,
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(10, 24, 10, 16),
+                  padding: EdgeInsets.only(bottom: 16),
                   child: Text(
                     'Steps',
                     style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.black,
-                    ),
+                        fontSize: 18.0,
+                        color: Colors.black,
+                        fontFamily: Constants.kfont),
                     textAlign: TextAlign.start,
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  child: RoundRectangularButton(
-                    20.0,
-                    color: Color(0xFFFC7A1E),
-                    text: 'Add new step',
-                    icon: Icons.add,
-                    constraints: BoxConstraints.expand(
-                      width: 500.0,
-                      height: 50.0,
-                    ),
+                RoundRectangularButton(
+                  20.0,
+                  color: Color(0xFFFC7A1E),
+                  text: 'Add new step',
+                  icon: Icons.add,
+                  constraints: BoxConstraints.expand(
+                    height: 50.0,
                   ),
+                  onPressed: () {},
                 ),
               ],
             ),

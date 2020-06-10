@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.light(),
-      home: ViewSteps(),
+      home: AddSteps(),
       //home: SavedRecipesScreen(),
     );
 
