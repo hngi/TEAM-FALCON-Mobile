@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyRecipeDiary.iml" filepath="$PROJECT_DIR$/.idea/modules/MyRecipeDiary.iml" group="MyRecipeDiary" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="MyRecipeDiary/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-960886057/react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/-960886057/react-native-community_async-storage.iml" group="MyRecipeDiary/react-native-community_async-storage" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1441411988/react-native-community_masked-view.iml" filepath="$PROJECT_DIR$/.idea/modules/1441411988/react-native-community_masked-view.iml" group="MyRecipeDiary/react-native-community_masked-view" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/686796739/react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/686796739/react-native-gesture-handler.iml" group="MyRecipeDiary/react-native-gesture-handler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1551656413/react-native-image-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/-1551656413/react-native-image-picker.iml" group="MyRecipeDiary/react-native-image-picker" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/144760953/react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/144760953/react-native-reanimated.iml" group="MyRecipeDiary/react-native-reanimated" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-761928852/react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/-761928852/react-native-safe-area-context.iml" group="MyRecipeDiary/react-native-safe-area-context" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/222714500/react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/222714500/react-native-screens.iml" group="MyRecipeDiary/react-native-screens" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/73610995/react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/73610995/react-native-vector-icons.iml" group="MyRecipeDiary/react-native-vector-icons" />
+    </modules>
+  </component>
+</project>
