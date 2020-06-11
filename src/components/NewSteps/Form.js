@@ -58,6 +58,9 @@ export default (props) => {
         let uri = '';
         if (Platform.OS === 'android') {
           uri = 'file:///' + response.path;
+        } else if (Platform.OS === 'ios') {
+          uri =
+            '~' + response.path.substring(response.path.indexOf('/Documents'));
         } else {
           uri = response.uri;
         }
