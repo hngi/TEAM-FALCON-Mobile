@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AddSteps extends StatefulWidget {
+class AddRecipie extends StatefulWidget {
   @override
   _State createState() => _State();
 }
 
-class _State extends State<AddSteps> {
+class _State extends State<AddRecipie> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,14 +38,14 @@ class _State extends State<AddSteps> {
             margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
             decoration: new BoxDecoration(
               border: Border.all(
-                  width: 1,
+                  width: 1.0,
                   style: BorderStyle.solid,
               ),
                 borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(22.0),
-                    topLeft: Radius.circular(22.0),
-                    topRight: Radius.circular(22.0),
-                bottomRight: Radius.circular(22.0)
+                    bottomLeft: Radius.circular(20.0),
+                    topLeft: Radius.circular(20.0),
+                    topRight: Radius.circular(20.0),
+                bottomRight: Radius.circular(20.0)
                 )
             ),
       child: FlatButton(
@@ -80,7 +80,7 @@ class _State extends State<AddSteps> {
               "Steps",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 25,
+                fontSize: 24,
               ),
             ),
           )),
@@ -101,7 +101,7 @@ class _State extends State<AddSteps> {
             "Add Steps",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 18,
               color: Colors.white,
             ),
           ),
