@@ -9,6 +9,7 @@ class KeyStorageServiceImpl implements KeyStorageService {
   static const first_time = 'first_time';
   static const api_key = 'api_key';
   static const theme = 'theme';
+  static const fullname = 'name';
 
   static KeyStorageServiceImpl _instance;
   static SharedPreferences _preferences;
@@ -74,7 +75,15 @@ class KeyStorageServiceImpl implements KeyStorageService {
   bool get isDarkMOde => _getFromDisk(theme) ?? false;
 
   @override
-    set isDarkMOde(bool _isDarkMOde) {
+  set isDarkMOde(bool _isDarkMOde) {
     _saveToDisk(theme, _isDarkMOde);
+  }
+
+  @override
+  String get name => _getFromDisk(fullname) ?? "";
+
+  @override
+  set name(String _name) {
+    _saveToDisk(fullname, _name);
   }
 }
