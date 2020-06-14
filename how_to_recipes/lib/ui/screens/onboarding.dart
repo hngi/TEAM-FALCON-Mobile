@@ -30,7 +30,7 @@ class _OnboardingState extends State<Onboarding> {
       duration: Duration(milliseconds: 150),
       margin: EdgeInsets.symmetric(horizontal: 5.0),
       height: 8.0,
-      width: !isActive ? 10.0 : 45.0,
+      width: !isActive ? MediaQuery.of(context).size.width/30 : MediaQuery.of(context).size.width/10,
       decoration: BoxDecoration(
         color: !isActive ? Constants.kcolor2 : Constants.kcolor1,
         borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -67,9 +67,9 @@ class _OnboardingState extends State<Onboarding> {
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: _buildPageIndicator(model.index)),
-            SizedBox(height: 10),
+            SizedBox(height: MediaQuery.of(context).size.height/50),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 30),
+              margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/30),
               alignment: Alignment.bottomCenter,
               child: ButtonTheme(
                 minWidth: 212.0,
@@ -102,7 +102,7 @@ class Onboarding1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 100),
+        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
         child: Column(
           children: <Widget>[
             Align(
@@ -110,7 +110,7 @@ class Onboarding1 extends StatelessWidget {
               child: Image.asset('assets/images/group267.png'),
             ),
             SizedBox(
-              height: 32,
+              height: MediaQuery.of(context).size.height/30
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 60),
