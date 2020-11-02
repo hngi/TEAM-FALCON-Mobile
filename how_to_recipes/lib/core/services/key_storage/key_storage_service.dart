@@ -7,5 +7,7 @@ abstract class KeyStorageService {
 
   bool isDarkMOde;
 
+  String name;
+
 
 }
